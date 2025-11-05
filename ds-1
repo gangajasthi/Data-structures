@@ -1,0 +1,33 @@
+#include<stdio.h>
+int main()
+{
+	int arr[]={2,4,10,16,15,19,21};
+	int size=sizeof(arr)/sizeof(arr[0]);
+	int target,low=0,high=size-1,mid;
+	printf("enter the element:");
+	scanf("%d",&target);
+	int found=0;
+	while(low<=high)
+	{
+		mid=(low+high)/2;
+		if(arr[mid]==target)
+		{
+			printf("element %d is found at index %d\n",target,mid);
+			found=1;
+			break;
+		}
+		else if(arr[mid]<target)
+		{
+			low=mid+1;
+		}
+		else
+		{
+			high=mid-1;
+		}
+	}
+	if(!found)
+	{
+		printf("element %d is not found at index\n",target);
+	}
+	return 0;
+}
